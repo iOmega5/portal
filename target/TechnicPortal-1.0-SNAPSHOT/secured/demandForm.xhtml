@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<head>
+</head>
+<h:body>
+    <h1>JSF 2 dropdown box example</h1>
+    <h:form>
+        <p:growl id="msgs" showDetail="true"/>
+        <p:panel header="Select департамент" style="margin-bottom:10px;">
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel for="dep" value="Депатаент: "/>
+                <p:selectOneMenu id="dep" value="#{dropdownView.departments}" style="width:150px">
+                    <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true"/>
+                    <f:selectItems value="#{dropdownView.departments}"/>
+                </p:selectOneMenu>
+            </h:panelGrid>
+            <p:separator/>
+            <p:commandButton value="Submit" update="msgs" actionListener="#{dropdownView.displayLocation}"
+                             icon="ui-icon-check"/>
+        </p:panel>
+    </h:form>
+
+    <h:form>
+        1. Hardcoded with "f:selectItem" :
+        <br/>
+        <h:selectOneMenu value="BMW">
+            <f:selectItem itemValue="520" itemLabel="BMW Series 5 - 520" />
+            <f:selectItem itemValue="525" itemLabel="BMW Series 5 - 525" />
+            <f:selectItem itemValue="535" itemLabel="BMW Series 5 - 535" />
+        </h:selectOneMenu>
+        <br/><br/>
+
+    </h:form>
+
+</h:body>
+</html>
