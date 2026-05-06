@@ -1,0 +1,12 @@
+name: Remote Test Trigger
+
+on:
+  # Этот блок разрешает внешний запуск, который ты настраиваешь
+  workflow_dispatch:
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run test
+        run: echo "Триггер успешно достучался до GitHub!"
